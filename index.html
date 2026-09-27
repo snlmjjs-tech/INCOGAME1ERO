@@ -438,41 +438,105 @@ const PRAISE=[['Great job!','¡Buen trabajo!'],['Perfect!','¡Perfecto!'],['Exce
 
 /* ---------- preguntas (la primera opción SIEMPRE es la correcta; el juego las mezcla) ---------- */
 const QUIZ={
- greet:{id:'greet',tag:'Greetings',qs:[
-  {en:'Good morning, {n}! How are you?',es:'¡Buenos días! ¿Cómo estás?',opts:["I'm fine, thank you!",'I am a table.','Goodbye, teacher.'],hint:'"How are you?" = ¿Cómo estás? Respondemos: "Estoy bien, gracias".'},
-  {en:"What's your name?",es:'¿Cómo te llamas?',opts:['My name is {n}.',"It's Monday.",'I am blue.'],hint:'"Name" = nombre. Respondemos con "My name is..."'},
-  {en:'The class is over. Say goodbye!',es:'La clase terminó. ¡Despídete!',opts:['See you tomorrow!','Good morning!','Nice to meet you!'],hint:'"See you tomorrow" = nos vemos mañana.'}]},
- objects:{id:'objects',tag:'Classroom objects',qs:[
-  {pic:'✏️',en:'What is this?',es:'¿Qué es esto?',opts:['A pencil','A chair','A window'],hint:'✏️ = lápiz = pencil.'},
-  {pic:'📖',en:'What is this?',es:'¿Qué es esto?',opts:['A book','A door','A bag'],hint:'📖 = libro = book.'},
-  {pic:'🎒',en:'What is this?',es:'¿Qué es esto?',opts:['A backpack','A pencil','A table'],hint:'🎒 = mochila = backpack.'}]},
- numbers:{id:'numbers',tag:'Numbers',qs:[
-  {pic:'📕📗📘',en:'How many books?',es:'¿Cuántos libros hay?',opts:['Three','Five','Ten'],hint:'Hay 3 libros. 3 = three.'},
-  {en:'Which number is "ten"?',es:'¿Qué número es "ten"?',opts:['10','2','100'],hint:'ten = diez = 10.'},
-  {en:'What comes after seven?',es:'¿Qué número viene después del siete?',opts:['Eight','Six','Nine'],hint:'seven = 7. Después viene el 8 = eight.'}]},
- colors:{id:'colors',tag:'Colors',qs:[
-  {pic:'🍌',en:'What color is a banana?',es:'¿De qué color es un plátano?',opts:['Yellow','Blue','Red'],hint:'Amarillo = yellow.'},
-  {pic:'🌿',en:'What color is grass?',es:'¿De qué color es el pasto?',opts:['Green','Pink','Black'],hint:'Verde = green.'},
-  {pic:'🍓',en:'What color is a strawberry?',es:'¿De qué color es una frutilla?',opts:['Red','Purple','White'],hint:'Rojo = red.'}]},
- food:{id:'food',tag:'Food',qs:[
-  {pic:'🍎',en:'What is this?',es:'¿Qué es esto?',opts:['An apple','A sandwich','A juice'],hint:'🍎 = manzana = apple.'},
-  {en:'Which one is a drink?',es:'¿Cuál es una bebida?',opts:['Milk 🥛','Bread 🍞','Apple 🍎'],hint:'Una bebida se toma. Milk = leche.'},
-  {pic:'🍕',en:'Complete: I ___ pizza!',es:'Completa: ¡Me gusta la pizza!',opts:['like','am','is'],hint:'"Me gusta" = I like.'}]},
- days:{id:'days',tag:'Days of the week',qs:[
-  {en:'Today is Monday. Tomorrow is ___.',es:'Hoy es lunes. Mañana es...',opts:['Tuesday','Sunday','Friday'],hint:'Monday = lunes, Tuesday = martes.'},
-  {en:'Which day is on the weekend?',es:'¿Qué día es del fin de semana?',opts:['Saturday','Wednesday','Thursday'],hint:'Fin de semana = Saturday y Sunday.'},
-  {en:"We don't have school on ___.",es:'No tenemos clases el...',opts:['Sunday','Monday','Friday'],hint:'Sunday = domingo.'}]},
+ greet:{id:'greet',tag:'Art words 1',qs:[
+  {en:'What does "Music" mean?',es:'¿Qué significa "Music"?',opts:['Música','Pintura','Teatro'],hint:'MUSIC = música.'},
+  {en:'What does "Literature" mean?',es:'¿Qué significa "Literature"?',opts:['Literatura','Escultura','Baile'],hint:'LITERATURE = literatura.'},
+  {en:'What does "Dance" mean?',es:'¿Qué significa "Dance"?',opts:['Baile','Cine','Pintura'],hint:'DANCE = baile / danza.'}]},
+ objects:{id:'objects',tag:'Art words 2',qs:[
+  {en:'What does "Photography" mean?',es:'¿Qué significa "Photography"?',opts:['Fotografía','Teatro','Música'],hint:'PHOTOGRAPHY = fotografía.'},
+  {en:'What does "Painting" mean?',es:'¿Qué significa "Painting"?',opts:['Pintura','Película','Baile'],hint:'PAINTING = pintura.'},
+  {en:'What does "Sculpture" mean?',es:'¿Qué significa "Sculpture"?',opts:['Escultura','Cine','Literatura'],hint:'SCULPTURE = escultura.'}]},
+ numbers:{id:'numbers',tag:'Art words 3',qs:[
+  {en:'What does "Theatre" mean?',es:'¿Qué significa "Theatre"?',opts:['Teatro','Música','Escultura'],hint:'THEATRE = teatro.'},
+  {en:'What does "Film" mean?',es:'¿Qué significa "Film"?',opts:['Película','Pintura','Baile'],hint:'FILM = película.'},
+  {en:'What does "Cinema" mean?',es:'¿Qué significa "Cinema"?',opts:['Cine','Teatro','Fotografía'],hint:'CINEMA = cine.'}]},
+ colors:{id:'colors',tag:'Art words 4',qs:[
+  {en:'What does "Painter" mean?',es:'¿Qué significa "Painter"?',opts:['Pintor/a','Cantante','Bailarín/a'],hint:'PAINTER = pintor / pintora.'},
+  {en:'What does "Singer" mean?',es:'¿Qué significa "Singer"?',opts:['Cantante','Escritor/a','Actor'],hint:'SINGER = cantante.'},
+  {en:'What does "Writer" mean?',es:'¿Qué significa "Writer"?',opts:['Escritor/a','Fotógrafo/a','Pintor/a'],hint:'WRITER = escritor / escritora.'}]},
+ food:{id:'food',tag:'Art words 5',qs:[
+  {en:'What does "Dancer" mean?',es:'¿Qué significa "Dancer"?',opts:['Bailarín/Bailarina','Cantante','Escritor/a'],hint:'DANCER = bailarín / bailarina.'},
+  {en:'What does "Actor/Actress" mean?',es:'¿Qué significa "Actor/Actress"?',opts:['Actor/Actriz','Pintor/a','Fotógrafo/a'],hint:'ACTOR/ACTRESS = actor / actriz.'},
+  {en:'What does "Photographer" mean?',es:'¿Qué significa "Photographer"?',opts:['Fotógrafo/a','Bailarín/a','Cantante'],hint:'PHOTOGRAPHER = fotógrafo / fotógrafa.'}]},
+ days:{id:'days',tag:'Art adjectives 1',qs:[
+  {en:'What does "Beautiful" mean?',es:'¿Qué significa "Beautiful"?',opts:['Hermoso/a','Aburrido/a','Extraño/a'],hint:'BEAUTIFUL = hermoso / hermosa.'},
+  {en:'What does "Boring" mean?',es:'¿Qué significa "Boring"?',opts:['Aburrido/a','Divertido/a','Talentoso/a'],hint:'BORING = aburrido / aburrida.'},
+  {en:'What does "Colorful" mean?',es:'¿Qué significa "Colorful"?',opts:['Colorido/a','Moderno/a','Famoso/a'],hint:'COLORFUL = colorido / colorida.'}]},
  final:{id:'final',tag:'Final exam',qs:[
-  {en:'Nice to ___ you!',es:'¡Mucho gusto!',opts:['meet','eat','run'],hint:'"Nice to meet you" = mucho gusto.'},
-  {pic:'✏️📖',en:'You write with a ___.',es:'Escribes con un...',opts:['pencil','chair','window'],hint:'Escribimos con un lápiz = pencil.'},
-  {en:'Which number is "twelve"?',es:'¿Qué número es "twelve"?',opts:['12','2','20'],hint:'twelve = doce = 12.'},
-  {pic:'🔴🟡',en:'Red + Yellow = ___',es:'Rojo + amarillo = ...',opts:['Orange','Green','Blue'],hint:'Rojo + amarillo = naranjo = orange.'},
-  {pic:'🥵',en:"I'm thirsty. I want ___.",es:'Tengo sed. Quiero...',opts:['water 💧','a sandwich 🥪','a pencil ✏️'],hint:'Thirsty = sed. Para la sed: water = agua.'},
-  {en:'Friday comes before ___.',es:'El viernes viene antes del...',opts:['Saturday','Thursday','Wednesday'],hint:'Friday = viernes, luego viene Saturday = sábado.'}]}
+  {en:'What does "Music" mean?',es:'¿Qué significa "Music"?',opts:['Música','Baile','Pintura'],hint:'MUSIC = música.'},
+  {en:'What does "Painting" mean?',es:'¿Qué significa "Painting"?',opts:['Pintura','Escultura','Cine'],hint:'PAINTING = pintura.'},
+  {en:'What does "Theatre" mean?',es:'¿Qué significa "Theatre"?',opts:['Teatro','Película','Música'],hint:'THEATRE = teatro.'},
+  {en:'What does "Singer" mean?',es:'¿Qué significa "Singer"?',opts:['Cantante','Escritor/a','Pintor/a'],hint:'SINGER = cantante.'},
+  {en:'What does "Actor/Actress" mean?',es:'¿Qué significa "Actor/Actress"?',opts:['Actor/Actriz','Bailarín/a','Fotógrafo/a'],hint:'ACTOR/ACTRESS = actor / actriz.'},
+  {en:'What does "Boring" mean?',es:'¿Qué significa "Boring"?',opts:['Aburrido/a','Divertido/a','Talentoso/a'],hint:'BORING = aburrido / aburrida.'}]}
 };
 
-Object.assign(QUIZ,{"family": {"id": "family", "tag": "Family", "qs": [{"en": "This is my mother's sister. She is my ___.", "es": "La hermana de mi mamá es mi...", "opts": ["aunt", "uncle", "cousin"], "hint": "La hermana de mi mamá es mi tía = aunt."}, {"en": "My father's father is my ___.", "es": "El papá de mi papá es mi...", "opts": ["grandfather", "brother", "son"], "hint": "Abuelo = grandfather."}, {"en": "Which word is a boy in the family?", "es": "¿Qué palabra es un niño de la familia?", "opts": ["Brother", "Sister", "Mother"], "hint": "Brother = hermano, sister = hermana, mother = madre."}]}, "weather": {"id": "weather", "tag": "Weather", "qs": [{"pic": "☔", "en": "It is raining. Take your ___!", "es": "Está lloviendo. ¡Lleva tu...!", "opts": ["umbrella", "sunglasses", "sandals"], "hint": "Paraguas = umbrella."}, {"pic": "☀️", "en": "How is the weather? It is ___.", "es": "¿Cómo está el clima? Está...", "opts": ["sunny", "snowy", "windy"], "hint": "Soleado = sunny."}, {"pic": "❄️", "en": "It is snowing. It is ___.", "es": "Está nevando. Hace...", "opts": ["cold", "hot", "sunny"], "hint": "Frío = cold, calor = hot."}]}, "sports": {"id": "sports", "tag": "Sports", "qs": [{"pic": "⚽", "en": "What sport is this?", "es": "¿Qué deporte es este?", "opts": ["Soccer", "Tennis", "Swimming"], "hint": "Fútbol = soccer."}, {"en": "I can swim. I go to the ___.", "es": "Sé nadar. Voy a la...", "opts": ["pool", "library", "kitchen"], "hint": "Piscina = pool."}, {"en": "We use a racket in ___.", "es": "Usamos una raqueta en el...", "opts": ["tennis", "soccer", "swimming"], "hint": "Raqueta = racket. Tenis = tennis."}]}, "animals": {"id": "animals", "tag": "Animals", "qs": [{"pic": "🐶", "en": "What animal is this?", "es": "¿Qué animal es este?", "opts": ["A dog", "A cat", "A horse"], "hint": "Perro = dog."}, {"en": "Which animal can fly?", "es": "¿Qué animal puede volar?", "opts": ["A bird", "A fish", "A horse"], "hint": "Volar = fly. Pájaro = bird."}, {"pic": "🐄", "en": "The cow gives us ___.", "es": "La vaca nos da...", "opts": ["milk", "eggs", "honey"], "hint": "Leche = milk."}]}, "clothes": {"id": "clothes", "tag": "Clothes", "qs": [{"pic": "👕", "en": "What is this?", "es": "¿Qué es esto?", "opts": ["A T-shirt", "A hat", "A shoe"], "hint": "Polera = T-shirt."}, {"en": "It is cold. I wear a ___.", "es": "Hace frío. Me pongo una...", "opts": ["jacket", "swimsuit", "sandal"], "hint": "Chaqueta = jacket."}, {"pic": "👟", "en": "We wear ___ on our feet.", "es": "En los pies usamos...", "opts": ["shoes", "gloves", "hats"], "hint": "Zapatos = shoes."}]}, "feelings": {"id": "feelings", "tag": "Feelings", "qs": [{"pic": "😊", "en": "How does she feel?", "es": "¿Cómo se siente ella?", "opts": ["Happy", "Sad", "Angry"], "hint": "Feliz = happy."}, {"pic": "😢", "en": "He is crying. He is ___.", "es": "Él está llorando. Está...", "opts": ["sad", "happy", "hungry"], "hint": "Triste = sad."}, {"pic": "😴", "en": "I am very ___. I want to sleep.", "es": "Tengo mucho sueño. Quiero dormir.", "opts": ["tired", "angry", "happy"], "hint": "Cansado = tired."}]}, "final2": {"id": "final2", "tag": "Level 2 exam", "qs": [{"en": "My mother's mother is my ___.", "es": "La mamá de mi mamá es mi...", "opts": ["grandmother", "sister", "aunt"], "hint": "Abuela = grandmother."}, {"pic": "🌧️", "en": "It is raining. I need my ___.", "es": "Está lloviendo. Necesito mi...", "opts": ["umbrella", "sunglasses", "ball"], "hint": "Paraguas = umbrella."}, {"en": "Which one is an animal?", "es": "¿Cuál es un animal?", "opts": ["Horse 🐴", "Shirt 👕", "Soccer ⚽"], "hint": "Caballo = horse."}, {"pic": "😄", "en": "She is laughing. She is ___.", "es": "Ella se está riendo. Está...", "opts": ["happy", "sad", "tired"], "hint": "Feliz = happy."}, {"en": "I wear ___ on my head.", "es": "En la cabeza me pongo...", "opts": ["a hat", "a sock", "a shoe"], "hint": "Sombrero = hat."}, {"en": "Swimming is a ___.", "es": "Nadar es un...", "opts": ["sport", "color", "day"], "hint": "Deporte = sport."}]}, "time": {"id": "time", "tag": "Time", "qs": [{"en": "It's 8:00. What time is it?", "es": "Son las 8:00. ¿Qué hora es?", "opts": ["It's eight o'clock.", "It's eight thirty.", "It's nine o'clock."], "hint": "o'clock = en punto."}, {"en": "Which time is \"half past three\"?", "es": "¿Qué hora es \"half past three\"?", "opts": ["3:30", "3:15", "2:30"], "hint": "Half past = y media."}, {"en": "Which one is a time of the day?", "es": "¿Cuál es una parte del día?", "opts": ["Evening", "Winter", "Friday"], "hint": "Evening = tarde-noche."}]}, "routines": {"id": "routines", "tag": "Routines", "qs": [{"en": "I ___ up at seven every day.", "es": "Me levanto a las siete todos los días.", "opts": ["get", "gets", "getting"], "hint": "Con I no se agrega -s: I get up."}, {"en": "She ___ to school by bus.", "es": "Ella va al colegio en bus.", "opts": ["goes", "go", "going"], "hint": "Con she/he se agrega -s/-es: goes."}, {"en": "He ___ his homework in the afternoon.", "es": "Él hace su tarea en la tarde.", "opts": ["does", "do", "doing"], "hint": "Con he: does."}]}, "past": {"id": "past", "tag": "Past simple", "qs": [{"en": "Yesterday I ___ to the park.", "es": "Ayer fui al parque.", "opts": ["went", "go", "goes"], "hint": "went = pasado de go."}, {"en": "She ___ a movie last night.", "es": "Ella vio una película anoche.", "opts": ["watched", "watch", "watches"], "hint": "Pasado regular: watch + ed."}, {"en": "We ___ pizza on Saturday.", "es": "Comimos pizza el sábado.", "opts": ["ate", "eat", "eats"], "hint": "ate = pasado de eat."}]}, "preps": {"id": "preps", "tag": "Prepositions", "qs": [{"pic": "🐱📦", "en": "The cat is ___ the box.", "es": "El gato está dentro de la caja.", "opts": ["in", "on", "under"], "hint": "in = dentro / en."}, {"en": "The book is ___ the table.", "es": "El libro está sobre la mesa.", "opts": ["on", "under", "behind"], "hint": "on = sobre."}, {"en": "The ball is ___ the chair.", "es": "La pelota está debajo de la silla.", "opts": ["under", "on", "in"], "hint": "under = debajo de."}]}, "can": {"id": "can", "tag": "Can / Can't", "qs": [{"en": "Birds ___ fly.", "es": "Los pájaros pueden volar.", "opts": ["can", "can't", "are"], "hint": "can = poder / saber."}, {"en": "Fish ___ walk.", "es": "Los peces no pueden caminar.", "opts": ["can't", "can", "are"], "hint": "can't = no puede."}, {"en": "___ you swim?", "es": "¿Sabes nadar?", "opts": ["Can", "Are", "Do"], "hint": "Can you...? = ¿Puedes / Sabes...?"}]}, "thereis": {"id": "thereis", "tag": "There is / are", "qs": [{"en": "There ___ a book on the desk.", "es": "Hay un libro sobre el escritorio.", "opts": ["is", "are", "am"], "hint": "Un solo libro (singular): is."}, {"en": "There ___ three chairs in the room.", "es": "Hay tres sillas en la sala.", "opts": ["are", "is", "be"], "hint": "Varias sillas (plural): are."}, {"en": "Is there a park near here? Yes, ___.", "es": "¿Hay un parque cerca? Sí, hay.", "opts": ["there is", "there are", "I am"], "hint": "Respuesta corta: Yes, there is."}]}, "final3": {"id": "final3", "tag": "Graduation exam", "qs": [{"en": "It's 6:00. It is ___ o'clock.", "es": "Son las 6:00. Son las... en punto.", "opts": ["six", "seven", "sixteen"], "hint": "six = seis."}, {"en": "She ___ TV every night.", "es": "Ella ve tele todas las noches.", "opts": ["watches", "watch", "watching"], "hint": "Con she: watches."}, {"en": "Yesterday we ___ soccer.", "es": "Ayer jugamos fútbol.", "opts": ["played", "play", "plays"], "hint": "Pasado: play + ed = played."}, {"en": "The cat is ___ the sofa.", "es": "El gato está sobre el sofá.", "opts": ["on", "in", "behind"], "hint": "on = sobre."}, {"en": "I ___ speak English!", "es": "¡Puedo hablar inglés!", "opts": ["can", "am", "do"], "hint": "Puedo = I can."}, {"en": "There ___ two dogs in the garden.", "es": "Hay dos perros en el jardín.", "opts": ["are", "is", "am"], "hint": "Dos perros (plural): are."}, {"en": "It is 3:30. It is half ___ three.", "es": "Son las tres y media.", "opts": ["past", "to", "for"], "hint": "Half past = y media."}, {"en": "My mother is a woman. My father is a ___.", "es": "Mi mamá es una mujer. Mi papá es un...", "opts": ["man", "girl", "baby"], "hint": "Hombre = man."}]}});
+Object.assign(QUIZ,{"family": {"id": "family", "tag": "Art adjectives 2", "qs": [
+  {"en": "What does \"Modern\" mean?", "es": "¿Qué significa \"Modern\"?", "opts": ["Moderno/a", "Tradicional", "Abstracto/a"], "hint": "MODERN = moderno / moderna."},
+  {"en": "What does \"Talented\" mean?", "es": "¿Qué significa \"Talented\"?", "opts": ["Talentoso/a", "Aburrido/a", "Extraño/a"], "hint": "TALENTED = talentoso / talentosa."},
+  {"en": "What does \"Abstract\" mean?", "es": "¿Qué significa \"Abstract\"?", "opts": ["Abstracto/a", "Realista", "Famoso/a"], "hint": "ABSTRACT = abstracto / abstracta."}]},
+ "weather": {"id": "weather", "tag": "Art adjectives 3", "qs": [
+  {"en": "What does \"Creative\" mean?", "es": "¿Qué significa \"Creative\"?", "opts": ["Creativo/a", "Moderno/a", "Aburrido/a"], "hint": "CREATIVE = creativo / creativa."},
+  {"en": "What does \"Amazing\" mean?", "es": "¿Qué significa \"Amazing\"?", "opts": ["Asombroso/a", "Extraño/a", "Tradicional"], "hint": "AMAZING = asombroso / asombrosa, increíble."},
+  {"en": "What does \"Realistic\" mean?", "es": "¿Qué significa \"Realistic\"?", "opts": ["Realista", "Abstracto/a", "Colorido/a"], "hint": "REALISTIC = realista."}]},
+ "sports": {"id": "sports", "tag": "Art adjectives 4", "qs": [
+  {"en": "What does \"Traditional\" mean?", "es": "¿Qué significa \"Traditional\"?", "opts": ["Tradicional", "Moderno/a", "Creativo/a"], "hint": "TRADITIONAL = tradicional."},
+  {"en": "What does \"Famous\" mean?", "es": "¿Qué significa \"Famous\"?", "opts": ["Famoso/a", "Extraño/a", "Realista"], "hint": "FAMOUS = famoso / famosa."},
+  {"en": "What does \"Strange\" mean?", "es": "¿Qué significa \"Strange\"?", "opts": ["Extraño/a", "Hermoso/a", "Talentoso/a"], "hint": "STRANGE = extraño / extraña."}]},
+ "animals": {"id": "animals", "tag": "Present continuous 1", "qs": [
+  {"en": "The painter ___ a very colorful picture in his studio. (paint)", "es": "El pintor está pintando un cuadro muy colorido en su estudio.", "opts": ["is painting", "paint", "painted"], "hint": "he/she/it + IS + verbo-ing: is painting."},
+  {"en": "My sister ___ a realistic short story for her class. (write)", "es": "Mi hermana está escribiendo un cuento realista para su clase.", "opts": ["is writing", "write", "writes"], "hint": "he/she/it + IS + verbo-ing: is writing."},
+  {"en": "I ___ a famous film at the cinema. (watch)", "es": "Estoy viendo una película famosa en el cine.", "opts": ["am watching", "watch", "watches"], "hint": "I + AM + verbo-ing: am watching."}]},
+ "clothes": {"id": "clothes", "tag": "Present continuous 2", "qs": [
+  {"en": "Diego ___ a beautiful song. (sing)", "es": "Diego está cantando una canción hermosa.", "opts": ["is singing", "sing", "sings"], "hint": "he/she/it + IS + verbo-ing: is singing."},
+  {"en": "Martina ___ the piano, she is very talented. (play)", "es": "Martina está tocando el piano, ella es muy talentosa.", "opts": ["is playing", "play", "played"], "hint": "he/she/it + IS + verbo-ing: is playing."},
+  {"en": "I ___ a book by my favorite writer. (read)", "es": "Estoy leyendo un libro de mi escritor favorito.", "opts": ["am reading", "read", "reads"], "hint": "I + AM + verbo-ing: am reading."}]},
+ "feelings": {"id": "feelings", "tag": "Connectors 1", "qs": [
+  {"en": "I like painting ___ I like drawing too.", "es": "Me gusta pintar y también me gusta dibujar.", "opts": ["and", "because", "if"], "hint": "AND = y (suma ideas)."},
+  {"en": "The song was amazing ___ everyone started to dance.", "es": "La canción fue asombrosa así que todos empezaron a bailar.", "opts": ["so", "although", "before"], "hint": "SO = así que (muestra un resultado)."},
+  {"en": "___ you like music, you will love this concert.", "es": "Si te gusta la música, amarás este concierto.", "opts": ["If", "Then", "After"], "hint": "IF = si (muestra una condición)."}]},
+ "final2": {"id": "final2", "tag": "Level 2 exam", "qs": [
+  {"en": "What does \"Talented\" mean?", "es": "¿Qué significa \"Talented\"?", "opts": ["Talentoso/a", "Aburrido/a", "Extraño/a"], "hint": "TALENTED = talentoso / talentosa."},
+  {"en": "What does \"Amazing\" mean?", "es": "¿Qué significa \"Amazing\"?", "opts": ["Asombroso/a", "Tradicional", "Realista"], "hint": "AMAZING = asombroso, increíble."},
+  {"en": "What does \"Famous\" mean?", "es": "¿Qué significa \"Famous\"?", "opts": ["Famoso/a", "Extraño/a", "Moderno/a"], "hint": "FAMOUS = famoso / famosa."},
+  {"en": "The painter ___ a very colorful picture. (paint)", "es": "El pintor está pintando un cuadro muy colorido.", "opts": ["is painting", "paint", "painted"], "hint": "he/she/it + IS + verbo-ing: is painting."},
+  {"en": "I ___ a famous film at the cinema. (watch)", "es": "Estoy viendo una película famosa en el cine.", "opts": ["am watching", "watch", "watches"], "hint": "I + AM + verbo-ing: am watching."},
+  {"en": "The song was amazing ___ everyone started to dance.", "es": "La canción fue asombrosa así que todos empezaron a bailar.", "opts": ["so", "although", "before"], "hint": "SO = así que (resultado)."}]},
+ "time": {"id": "time", "tag": "Connectors 2", "qs": [
+  {"en": "First, the actors rehearse, ___ they perform on stage.", "es": "Primero, los actores ensayan, luego actúan en el escenario.", "opts": ["then", "because", "if"], "hint": "THEN = luego / entonces (el siguiente paso)."},
+  {"en": "We didn't go to the museum ___ it was closed.", "es": "No fuimos al museo porque estaba cerrado.", "opts": ["because", "so", "and"], "hint": "BECAUSE = porque (da una razón)."},
+  {"en": "The painting is very old, ___ it still looks colorful.", "es": "La pintura es muy antigua, aunque todavía se ve colorida.", "opts": ["although", "so", "then"], "hint": "ALTHOUGH = aunque (contraste inesperado)."}]},
+ "routines": {"id": "routines", "tag": "Connectors 3", "qs": [
+  {"en": "The dancer practices ___ she goes on stage.", "es": "La bailarina practica antes de salir al escenario.", "opts": ["before", "after", "so"], "hint": "BEFORE = antes de."},
+  {"en": "The photographer took photos of the sunset ___ she edited them on her computer.", "es": "La fotógrafa tomó fotos del atardecer y después las editó en su computador.", "opts": ["after", "before", "because"], "hint": "AFTER = después de."},
+  {"en": "Which connector means \"porque\"?", "es": "¿Qué conector significa \"porque\"?", "opts": ["Because", "Although", "Then"], "hint": "BECAUSE = porque."}]},
+ "past": {"id": "past", "tag": "True or False 1", "qs": [
+  {"en": "True or False: \"Boring\" means something is very interesting and fun.", "es": "\"Boring\" significa que algo es muy interesante y divertido.", "opts": ["False", "True"], "hint": "BORING = aburrido, todo lo contrario a divertido."},
+  {"en": "True or False: \"Before\" is used to say something happens after another thing.", "es": "\"Before\" se usa para decir que algo pasa después de otra cosa.", "opts": ["False", "True"], "hint": "BEFORE = antes de, no después."},
+  {"en": "True or False: \"Then\" is used to show the order of actions.", "es": "\"Then\" se usa para mostrar el orden de las acciones.", "opts": ["True", "False"], "hint": "THEN = luego / entonces, muestra orden."}]},
+ "preps": {"id": "preps", "tag": "True or False 2", "qs": [
+  {"en": "True or False: Present continuous is used for actions happening right now.", "es": "El presente continuo se usa para hablar de acciones que están pasando ahora.", "opts": ["True", "False"], "hint": "Presente continuo = acción en este momento."},
+  {"en": "True or False: \"Talented\" means someone is very good at doing something.", "es": "\"Talented\" significa que alguien es muy bueno/a haciendo algo.", "opts": ["True", "False"], "hint": "TALENTED = talentoso, bueno para algo."},
+  {"en": "True or False: For \"we/you/they\" we use \"is\" + verb-ing.", "es": "Para \"we/you/they\" usamos \"is\" + verbo-ing.", "opts": ["False", "True"], "hint": "Para we/you/they se usa ARE, no is."}]},
+ "can": {"id": "can", "tag": "True or False 3", "qs": [
+  {"en": "True or False: \"And\" is used to join two similar ideas or add information.", "es": "\"And\" se usa para unir dos ideas similares o añadir información.", "opts": ["True", "False"], "hint": "AND = y, suma ideas."},
+  {"en": "True or False: \"Sculpture\" means a work of art made of stone, wood or metal in 3D.", "es": "\"Sculpture\" significa una obra de arte hecha de piedra, madera o metal en 3D.", "opts": ["True", "False"], "hint": "SCULPTURE = escultura, obra en 3D."},
+  {"en": "True or False: Present continuous is used to talk about actions that already finished.", "es": "El presente continuo se usa para hablar de acciones que terminaron.", "opts": ["False", "True"], "hint": "Presente continuo = ahora, no acciones terminadas."}]},
+ "thereis": {"id": "thereis", "tag": "Art review", "qs": [
+  {"en": "True or False: \"Painter\" means a person who sings.", "es": "\"Painter\" significa una persona que canta.", "opts": ["False", "True"], "hint": "PAINTER = pintor/a, SINGER = cantante."},
+  {"en": "What does \"Creative\" mean?", "es": "¿Qué significa \"Creative\"?", "opts": ["Creativo/a", "Aburrido/a", "Tradicional"], "hint": "CREATIVE = creativo / creativa."},
+  {"en": "We ___ a creative sculpture. (buy)", "es": "Estamos comprando una escultura creativa.", "opts": ["are buying", "buy", "buys"], "hint": "we + ARE + verbo-ing: are buying."}]},
+ "final3": {"id": "final3", "tag": "Graduation exam", "qs": [
+  {"en": "What does \"Sculpture\" mean?", "es": "¿Qué significa \"Sculpture\"?", "opts": ["Escultura", "Pintura", "Música"], "hint": "SCULPTURE = escultura."},
+  {"en": "What does \"Talented\" mean?", "es": "¿Qué significa \"Talented\"?", "opts": ["Talentoso/a", "Aburrido/a", "Moderno/a"], "hint": "TALENTED = talentoso / talentosa."},
+  {"en": "They ___ the theater downtown. (close)", "es": "Ellos están cerrando el teatro del centro.", "opts": ["are closing", "close", "closes"], "hint": "they + ARE + verbo-ing: are closing."},
+  {"en": "Isidora and Joaquín ___ to the beautiful mountains. (drive)", "es": "Isidora y Joaquín están manejando hacia las hermosas montañas.", "opts": ["are driving", "drive", "drove"], "hint": "they + ARE + verbo-ing: are driving."},
+  {"en": "I like painting ___ I like drawing too.", "es": "Me gusta pintar y también me gusta dibujar.", "opts": ["and", "before", "although"], "hint": "AND = y (suma ideas)."},
+  {"en": "The dancer practices ___ she goes on stage.", "es": "La bailarina practica antes de salir al escenario.", "opts": ["before", "after", "so"], "hint": "BEFORE = antes de."},
+  {"en": "True or False: \"Amazing\" means something is boring.", "es": "\"Amazing\" significa que algo es aburrido.", "opts": ["False", "True"], "hint": "AMAZING = asombroso/increíble, no aburrido."},
+  {"en": "True or False: Present continuous is used for actions happening right now.", "es": "El presente continuo se usa para acciones que pasan ahora.", "opts": ["True", "False"], "hint": "Presente continuo = ahora mismo."}]}});
 for(const [k,q] of Object.entries(QUIZ))q.id=k;
+
 
 const NPCS={
  guard:{name:'Alvarin',x:9,y:10,dir:'down',look:LOOK.guard,
@@ -522,15 +586,26 @@ for(const d of [{"id": "cleaner", "name": "Ms. Rosa", "look": "cleaner", "x": 6,
   mark:d.exam==='vice'?(()=>save.final2?2:(starsOf(2)>=6?1:0)):d.exam==='emma'?(()=>save.done.emmaBonus?2:1):d.exam==='kai'?(()=>save.done.kaiBonus?2:1):undefined});
 Object.assign(LOOK,{rafa:{style:'short',hs:'swept',hair:'#2a1c14',skin:'#ecc9a6',eyes:'#3b2a1c',shirt:'#1a1a1f',blazer:'#a5428c',pants:'#a5428c',shoes:'#2a2a30',beard:true,camera:true,g:'m',build:1}});
 LOOK.giant=Object.assign({},LOOK.principal,{mood:'angry',tie:'#e05555'});
-QUIZ.boss={"id": "boss", "tag": "Big test", "qs": [{"en": "I take an umbrella ___ it is raining.", "es": "Llevo paraguas ___ está lloviendo.", "opts": ["because", "but", "then"], "hint": "BECAUSE = porque (da una razón)."}, {"en": "___ is your name?", "es": "¿___ es tu nombre? / ¿Cómo te llamas?", "opts": ["What", "Where", "Why"], "hint": "WHAT = qué (pregunta por cosas)."}, {"en": "I like tea, ___ I don't like coffee.", "es": "Me gusta el té, ___ no me gusta el café.", "opts": ["but", "and", "so"], "hint": "BUT = pero (contraste)."}, {"en": "___ do you live? In Santiago.", "es": "¿___ vives? En Santiago.", "opts": ["Where", "Who", "How"], "hint": "WHERE = dónde (pregunta por lugares)."}, {"en": "___ you study, you learn.", "es": "___ estudias, aprendes.", "opts": ["If", "But", "So"], "hint": "IF = si (condición)."}, {"en": "___ are you sad? Because I am tired.", "es": "¿___ estás triste? Porque estoy cansado.", "opts": ["Why", "Which", "Where"], "hint": "WHY = por qué. Se responde con BECAUSE."}, {"en": "I was tired, ___ I slept.", "es": "Estaba cansado, ___ dormí.", "opts": ["so", "but", "if"], "hint": "SO = así que (resultado)."}, {"en": "___ are you? I am fine, thanks.", "es": "¿___ estás? Estoy bien, gracias.", "opts": ["How", "Who", "What"], "hint": "HOW = cómo."}, {"en": "___ it was cold, we played outside.", "es": "___ hacía frío, jugamos afuera.", "opts": ["Although", "And", "So"], "hint": "ALTHOUGH = aunque (contraste inesperado)."}, {"en": "___ is your teacher? Teacher Seba!", "es": "¿___ es tu profesor? ¡El profe Seba!", "opts": ["Who", "Where", "Why"], "hint": "WHO = quién (pregunta por personas)."}]};QUIZ.boss.id='boss';QUIZ.final3.tag='Level 3 exam';
+QUIZ.boss={"id": "boss", "tag": "Big test", "qs": [
+  {"en": "What does \"Realistic\" mean?", "es": "¿Qué significa \"Realistic\"?", "opts": ["Realista", "Abstracto/a", "Tradicional"], "hint": "REALISTIC = realista."},
+  {"en": "What does \"Strange\" mean?", "es": "¿Qué significa \"Strange\"?", "opts": ["Extraño/a", "Hermoso/a", "Famoso/a"], "hint": "STRANGE = extraño / extraña."},
+  {"en": "The painter ___ a very colorful picture. (paint)", "es": "El pintor está pintando un cuadro muy colorido.", "opts": ["is painting", "paint", "painted"], "hint": "he/she/it + IS + verbo-ing."},
+  {"en": "You ___ a colorful picture in class. (draw)", "es": "Estás dibujando un cuadro colorido en clase.", "opts": ["are drawing", "draw", "drew"], "hint": "you + ARE + verbo-ing: are drawing."},
+  {"en": "The song was amazing ___ everyone started to dance.", "es": "La canción fue asombrosa así que todos empezaron a bailar.", "opts": ["so", "although", "before"], "hint": "SO = así que (resultado)."},
+  {"en": "___ you like music, you will love this concert.", "es": "Si te gusta la música, amarás este concierto.", "opts": ["If", "Then", "After"], "hint": "IF = si (condición)."},
+  {"en": "We didn't go to the museum ___ it was closed.", "es": "No fuimos al museo porque estaba cerrado.", "opts": ["because", "so", "and"], "hint": "BECAUSE = porque (razón)."},
+  {"en": "The painting is very old, ___ it still looks colorful.", "es": "La pintura es muy antigua, aunque todavía se ve colorida.", "opts": ["although", "so", "then"], "hint": "ALTHOUGH = aunque (contraste)."},
+  {"en": "True or False: \"Sculpture\" means a work of art in 3D.", "es": "\"Sculpture\" significa una obra de arte en 3D.", "opts": ["True", "False"], "hint": "SCULPTURE = escultura, obra en 3D."},
+  {"en": "True or False: For \"we/you/they\" we use \"is\" + verb-ing.", "es": "Para \"we/you/they\" usamos \"is\" + verbo-ing.", "opts": ["False", "True"], "hint": "Para we/you/they se usa ARE."}]};QUIZ.boss.id='boss';QUIZ.final3.tag='Level 3 exam';
 QUIZ.emmaBonus={tag:'Bonus',qs:[
-  {en:'What does "Hello" mean?',es:'¿Qué significa "Hello"?',opts:['Hola','Adiós','Gracias'],hint:'HELLO = Hola.'},
-  {en:'Choose the correct word: I ___ a book.',es:'Elige la palabra correcta: Yo ___ un libro.',opts:['read','eat','run'],hint:'READ = leer.'}
+  {en:'What does "Music" mean?',es:'¿Qué significa "Music"?',opts:['Música','Baile','Teatro'],hint:'MUSIC = música.'},
+  {en:'What does "Dance" mean?',es:'¿Qué significa "Dance"?',opts:['Baile','Pintura','Cine'],hint:'DANCE = baile / danza.'}
 ]};
 QUIZ.kaiBonus={tag:'Bonus',qs:[
-  {en:'How do you say "¿Cómo estás?" in English?',es:'¿Cómo se dice "¿Cómo estás?" en inglés?',opts:['How are you?','What is this?','Where are you?'],hint:'HOW ARE YOU? = ¿Cómo estás?'},
-  {en:'I am fine, ___ you?',es:'Estoy bien, ¿y ___?',opts:['and','but','so'],hint:'AND = y.'}
+  {en:'The painter ___ a very colorful picture. (paint)',es:'El pintor está pintando un cuadro muy colorido.',opts:['is painting','paint','painted'],hint:'he/she/it + IS + verbo-ing.'},
+  {en:'I like painting ___ I like drawing too.',es:'Me gusta pintar y también me gusta dibujar.',opts:['and','before','although'],hint:'AND = y (suma ideas).'}
 ]};
+
 async function npcTestSkip(n){
   if(!state.npcTest)return false;
   await say(n,'Hi!','¡Hola!');
@@ -1911,7 +1986,7 @@ function computeScore(){
 function submitScore(){
   if(!fsDb)return;
   try{
-    fsDb.collection('scores_1ero').add({
+    fsDb.collection('scores').add({
       name:save.name||'',
       course:save.course||'',
       stars:starsOf(1)+starsOf(2)+starsOf(3),
@@ -1924,7 +1999,7 @@ function submitScore(){
 }
 function clearLeaderboard(){
   if(!fsDb)return Promise.reject(new Error('no db'));
-  return fsDb.collection('scores_1ero').get().then(snap=>{
+  return fsDb.collection('scores').get().then(snap=>{
     const docs=snap.docs,chunks=[];
     for(let i=0;i<docs.length;i+=400)chunks.push(docs.slice(i,i+400));
     return chunks.reduce((p,chunk)=>p.then(()=>{
@@ -1940,7 +2015,7 @@ function fetchLeaderboard(){
   leaderboardStatus='loading';
   const timeout=new Promise((_,rej)=>setTimeout(()=>rej(new Error('timeout')),9000));
   Promise.race([
-    fsDb.collection('scores_1ero').orderBy('score','desc').limit(12).get().then(snap=>snap.docs.map(d=>d.data())),
+    fsDb.collection('scores').orderBy('score','desc').limit(12).get().then(snap=>snap.docs.map(d=>d.data())),
     timeout
   ]).then(d=>{
     leaderboard=(Array.isArray(d)?d:[]).slice().sort((a,b)=>(b.score||0)-(a.score||0));
