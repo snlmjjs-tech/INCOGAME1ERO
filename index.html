@@ -1911,7 +1911,7 @@ function computeScore(){
 function submitScore(){
   if(!fsDb)return;
   try{
-    fsDb.collection('scores').add({
+    fsDb.collection('scores_1ero').add({
       name:save.name||'',
       course:save.course||'',
       stars:starsOf(1)+starsOf(2)+starsOf(3),
@@ -1924,7 +1924,7 @@ function submitScore(){
 }
 function clearLeaderboard(){
   if(!fsDb)return Promise.reject(new Error('no db'));
-  return fsDb.collection('scores').get().then(snap=>{
+  return fsDb.collection('scores_1ero').get().then(snap=>{
     const docs=snap.docs,chunks=[];
     for(let i=0;i<docs.length;i+=400)chunks.push(docs.slice(i,i+400));
     return chunks.reduce((p,chunk)=>p.then(()=>{
@@ -1940,7 +1940,7 @@ function fetchLeaderboard(){
   leaderboardStatus='loading';
   const timeout=new Promise((_,rej)=>setTimeout(()=>rej(new Error('timeout')),9000));
   Promise.race([
-    fsDb.collection('scores').orderBy('score','desc').limit(12).get().then(snap=>snap.docs.map(d=>d.data())),
+    fsDb.collection('scores_1ero').orderBy('score','desc').limit(12).get().then(snap=>snap.docs.map(d=>d.data())),
     timeout
   ]).then(d=>{
     leaderboard=(Array.isArray(d)?d:[]).slice().sort((a,b)=>(b.score||0)-(a.score||0));
